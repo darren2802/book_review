@@ -2,14 +2,26 @@ require 'rails_helper'
 
 describe 'As a user I can enter a book title in the search form' do
   describe 'I can see various information about the book' do
-    it 'shows the book title author genres and any reviews for the book' do
+    it 'shows the title, author, genres and any reviews for the book' do
       visit root_path
       expect(current_path).to eq(root_path)
 
-      fill_in :title, with: 'the man who saw everything'
+      fill_in :title, with: 'Normal People'
       click_button 'Find Book'
 
       expect(current_path).to eq(search_path)
+
+      within '.book-details' do
+        expect(page).to have_content('Title: Normal People')
+        within '#book-authors' do
+          expect(page).to have_content('Author(s):')
+          expect(page).to have_content('Sally Rooney')
+        end
+        within '#book-genres' do
+          expect(page).to have_content('Genre(s):')
+          expect(page).to have_content('No genres found for this book')
+        end
+      end
     end
   end
 end

@@ -1,0 +1,22 @@
+<hr>
+<h3>Book Search Result</h3>
+<section class='book-details'>
+  <p>Title: <%= @book.title %></p>
+  <section id='book-authors'>
+    <p>Author(s):</p>
+    <% @book.authors.each do |author| %>
+      <%= author %>
+    <% end %>
+  </section>
+  <br>
+  <section id='book-genres'>
+    <p>Genre(s):</p>
+    <% if @book.genres %>
+      <% @book.genres.each do |genre| %>
+        <%= genre %>
+      <% end %>
+    <% else %>
+      <p>No genres found for this book</p>
+    <% end %>
+  </section>
+</section>
