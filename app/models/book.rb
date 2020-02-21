@@ -1,9 +1,10 @@
 class Book
-  attr_reader :title, :authors, :genres
+  attr_reader :title, :authors, :genres, :reviews
 
-  def initialize(data)
-    @title = data[:title]
-    @authors = data[:author_name]
-    @genres = data[:subject]
+  def initialize(details, reviews)
+    @title = details[:title]
+    @authors = details[:author_name]
+    @genres = details[:subject]
+    @reviews = reviews
   end
 end

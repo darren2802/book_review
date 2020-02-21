@@ -22,6 +22,12 @@ describe 'As a user I can enter a book title in the search form' do
           expect(page).to have_content('No genres found for this book')
         end
       end
+
+      within '.book-reviews' do
+        expect(page).to have_content('Reviews:')
+        expect(page).to have_content('Rooney’s second novel tracks two gifted but troubled teenagers across four years of friendship and occasional romance.')
+        expect(page).to have_content("Like “Conversations With Friends,” “Normal People” also traces a young romance in Ireland.")
+      end
     end
   end
 end

@@ -20,3 +20,9 @@
     <% end %>
   </section>
 </section>
+<section class='book-reviews'>
+  <p>Reviews:</p>
+  <% @book.reviews.each do |review| %>
+    <p><%= review %></p>
+  <% end %>
+</section>
